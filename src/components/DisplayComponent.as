@@ -4,8 +4,6 @@ package components {
 	 * @author berendweij
 	 */
 	public class DisplayComponent {
-		
-		public var view	:	DisplayObject;
-		
+		public var view:DisplayObject;
 	}
 }

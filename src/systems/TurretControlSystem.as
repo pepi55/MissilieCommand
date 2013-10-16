@@ -20,8 +20,8 @@ package systems {
 					display = target.get(DisplayComponent) as DisplayComponent;
 					position = target.get(PositionComponent) as PositionComponent;
 					
-					xdiff = (display.view.mouseX - position.x);
-					ydiff = (display.view.mouseY - position.y);
+					xdiff = (position.x - display.view.mouseX);
+					ydiff = (position.y - display.view.mouseY);
 					radians = Math.atan2(ydiff, xdiff);
 					degrees = radians * 180 / Math.PI;
 					
