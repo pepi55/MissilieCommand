@@ -16,13 +16,12 @@
 
 	public class Main extends Sprite
 	{
-		private var _engine	:	Engine;
+		private var _engine:Engine;
 		
 		public function Main()
 		{
-			
 			// we maken als eerste de engine aan. Deze is het belangrijkste
-			_engine	=	new Engine();
+			_engine = new Engine();
 			
 			// vervolgens initieren wij de systemen
 			// dit doen we door ze toe te voegen aan de engine
@@ -33,22 +32,22 @@
 			_engine.addSystem(new RenderSystem());		
 			
 			// de wereld willen we ook als Entity hebben
-			var world : Entity = new Entity();
+			//var world:Entity = new Entity();
 			
-			var worldPosition : PositionComponent = new PositionComponent();
-			worldPosition.x = 0;
-			worldPosition.y = 300;
+			//var worldPosition:PositionComponent = new PositionComponent();
+			//worldPosition.x = 0;
+			//worldPosition.y = 300;
 			
-			var worldDisplay	: DisplayComponent = new DisplayComponent();
-			worldDisplay.view = new landscape();
+			//var worldDisplay:DisplayComponent = new DisplayComponent();
+			//worldDisplay.view = new landscape();
 			
-			world.add(worldPosition);
-			world.add(worldDisplay);
+			//world.add(worldPosition);
+			//world.add(worldDisplay);
 			
 			// we hebben 1 component nodig die door alle objecten gebruikt kan worden
 			// deze component bevat een verwijzing naar de wereld
-			var collision : CollisionComponent = new CollisionComponent();
-			collision.world	=	world;
+			//var collision:CollisionComponent = new CollisionComponent();
+			//collision.world = world;
 			
 			var singleTurret:Entity = new Entity();
 			var turretArt:DisplayComponent = new DisplayComponent();
