@@ -2,7 +2,6 @@ package systems {
 	import components.DisplayComponent;
 	import components.PositionComponent;
 	import components.TurretControlComponent;
-	import systems.System;
 
 	/**
 	 * @author pepi
@@ -11,8 +10,8 @@ package systems {
 		override public function update():void {
 			var xdiff:Number;
 			var ydiff:Number;
-			var radians:Number = Math.atan2(ydiff, xdiff);
-			var degrees:Number = radians * 180 /Math.PI;
+			var radians:Number;
+			var degrees:Number;
 			var position:PositionComponent;
 			var display:DisplayComponent;
 			
@@ -23,6 +22,8 @@ package systems {
 					
 					xdiff = (display.view.mouseX - position.x);
 					ydiff = (display.view.mouseY - position.y);
+					radians = Math.atan2(ydiff, xdiff);
+					degrees = radians * 180 / Math.PI;
 					
 					position.rotation = degrees;
 				}

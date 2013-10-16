@@ -27,9 +27,10 @@
 			// vervolgens initieren wij de systemen
 			// dit doen we door ze toe te voegen aan de engine
 			_engine.addSystem(new GravitySystem());
+			_engine.addSystem(new TurretControlSystem());
 			_engine.addSystem(new MovementSystem());
 			_engine.addSystem(new CollisionSystem());
-			_engine.addSystem(new RenderSystem());			
+			_engine.addSystem(new RenderSystem());		
 			
 			// de wereld willen we ook als Entity hebben
 			var world : Entity = new Entity();
@@ -62,10 +63,7 @@
 			singleTurret.add(turretPos);
 			singleTurret.add(turretArt);
 			
-			_engine.addEntity(singleTurret);
-			//_engine.addSystem(TurretControlSystem);
-			
-			var carFactory	:	CarFactory	=	new CarFactory();
+			/*var carFactory	:	CarFactory	=	new CarFactory();
 			
 			carFactory.posY = stage.stageHeight - stage.stageHeight / 4;
 			carFactory.stageWidth = stage.stageWidth;
@@ -77,13 +75,15 @@
 				addChild(turret.get(DisplayComponent).view);
 				// registreer de auto bij de engine zodat de game ook gaat werken
 				_engine.addEntity(turret);
-			}
+			}*/
 			
-			_engine.addEntity(world);
+			//_engine.addEntity(world);
+			_engine.addEntity(singleTurret);
 			
 			// laat de auto ook visueel zien
 			// we voegen hem toe aan de stage
-			addChild(world.get(DisplayComponent).view);
+			//addChild(world.get(DisplayComponent).view);
+			addChild(singleTurret.get(DisplayComponent).view);
 			
 			// start het updaten van het spel
 			stage.addEventListener(Event.ENTER_FRAME, updateEngine);
