@@ -2,6 +2,8 @@
 {
 	import factories.ProjectileFactory;
 	import factories.TurretFactory;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	import systems.TurretControlSystem;
 	import components.TurretControlComponent;
 	import art.TurretArt;
@@ -22,34 +24,28 @@
 	public class Main extends Sprite
 	{
 		private var _engine:Engine;
+		public var missileFactory:ProjectileFactory = new ProjectileFactory();
 		
 		public function Main()
 		{
 			_engine = new Engine();
 			
-			_engine.addSystem(new GravitySystem());
+			//_engine.addSystem(new GravitySystem());
 			_engine.addSystem(new TurretControlSystem());
 			_engine.addSystem(new MovementSystem());
 			//_engine.addSystem(new CollisionSystem());
 			_engine.addSystem(new RenderSystem());
 			
 			var turretControl:TurretControlComponent = new TurretControlComponent();
+			var timer:Timer = new Timer(Math.random() * 5000 + 1000, 10);
 			
 			//Factories
-			var missileFactory:ProjectileFactory = new ProjectileFactory();
 			var turretFactory:TurretFactory = new TurretFactory();
 			
 			turretControl.mousePos = this;
 			
 			missileFactory.stageHeight = stage.stageHeight;
 			missileFactory.stageWidth = stage.stageWidth;
-			
-			for (var j:int = 0; j < 10; j++) 
-			{
-				var missile:Entity = missileFactory.spawnEnemyMissile(ProjectileFactory.MISSILE);
-				addChild(missile.get(DisplayComponent).view);
-				_engine.addEntity(missile);
-			}
 			
 			turretFactory.posY = stage.stageHeight - stage.stageHeight / 8;
 			turretFactory.stageWidth = stage.stageWidth;
@@ -62,7 +58,17 @@
 				_engine.addEntity(turret);
 			}
 			
+			timer.addEventListener(TimerEvent.TIMER, spawnMissile);
+			timer.start();
+			
 			stage.addEventListener(Event.ENTER_FRAME, updateEngine);
+		}
+		
+		private function spawnMissile(e:TimerEvent):void 
+		{
+			var missile:Entity = missileFactory.spawnEnemyMissile(ProjectileFactory.MISSILE);
+			addChild(missile.get(DisplayComponent).view);
+			_engine.addEntity(missile);
 		}
 
 		private function updateEngine(e : Event) : void

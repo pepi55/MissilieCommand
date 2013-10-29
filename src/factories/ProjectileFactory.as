@@ -27,7 +27,7 @@ package factories
 				var missileDisplay:DisplayComponent = new DisplayComponent();
 				var velocity:VelocityComponent = new VelocityComponent();
 				
-				velocity.velocityY = -5;
+				velocity.velocityY = 5;
 				missileDisplay.view = new MissileArt();
 			}
 			
