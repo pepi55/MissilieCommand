@@ -23,12 +23,12 @@ package art {
 			gun.graphics.lineStyle(1, 0XFF00FF);
 			gun.graphics.beginFill(0XFF0000);
 			
-			gun.graphics.moveTo(-1, 0);
+			gun.graphics.moveTo(0, -1);
 			
-			gun.graphics.lineTo(1, 0);
-			gun.graphics.lineTo(1, -15);
-			gun.graphics.lineTo(-1, -15);
-			gun.graphics.lineTo(-1, 0);
+			gun.graphics.lineTo(0, 1);
+			gun.graphics.lineTo(-15, 1);
+			gun.graphics.lineTo(-15, -1);
+			gun.graphics.lineTo(0, -1);
 			
 			gun.graphics.endFill();
 		}

@@ -1,12 +1,13 @@
 ﻿package 
 {
+	import factories.TurretFactory;
 	import systems.TurretControlSystem;
 	import components.TurretControlComponent;
 	import art.TurretArt;
 	import components.CollisionComponent;
 	import components.DisplayComponent;
 	import components.PositionComponent;
-	import factories.CarFactory;
+	import factories.TurretFactory;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import systems.CollisionSystem;
@@ -49,40 +50,43 @@
 			//var collision:CollisionComponent = new CollisionComponent();
 			//collision.world = world;
 			
-			var singleTurret:Entity = new Entity();
+			//var singleTurret:Entity = new Entity();
 			var turretArt:DisplayComponent = new DisplayComponent();
 			var turretPos:PositionComponent = new PositionComponent();
-			var turretControl:TurretControlComponent = new TurretControlComponent();
 			
-			turretPos.x = Math.random() * stage.stageWidth;
+			/*turretPos.x = Math.random() * stage.stageWidth;
 			turretPos.y = stage.stageHeight - stage.stageHeight / 4;
 			turretArt.view = new TurretArt();
 			
 			singleTurret.add(turretControl);
 			singleTurret.add(turretPos);
-			singleTurret.add(turretArt);
+			singleTurret.add(turretArt);*/
 			
-			/*var carFactory	:	CarFactory	=	new CarFactory();
+			var turretControl:TurretControlComponent = new TurretControlComponent();
+			turretControl.mousePos = this;
 			
-			carFactory.posY = stage.stageHeight - stage.stageHeight / 4;
-			carFactory.stageWidth = stage.stageWidth;
+			var turretFactory:TurretFactory = new TurretFactory();
 			
-			for (var i : int = 0; i < 3; i++)
+			turretFactory.posY = stage.stageHeight - stage.stageHeight / 4;
+			turretFactory.stageWidth = stage.stageWidth;
+			turretFactory.turretControl = turretControl;
+			
+			for (var i:int = 0; i < 3; i++)
 			{
-				var turret : Entity	=	carFactory.makeCar(CarFactory.TURRET);
-				turret.add(collision);
+				var turret:Entity = turretFactory.makeTurret(TurretFactory.TURRET);
+				//turret.add();
 				addChild(turret.get(DisplayComponent).view);
 				// registreer de auto bij de engine zodat de game ook gaat werken
 				_engine.addEntity(turret);
-			}*/
+			}
 			
 			//_engine.addEntity(world);
-			_engine.addEntity(singleTurret);
+			//_engine.addEntity(singleTurret);
 			
 			// laat de auto ook visueel zien
 			// we voegen hem toe aan de stage
 			//addChild(world.get(DisplayComponent).view);
-			addChild(singleTurret.get(DisplayComponent).view);
+			//addChild(singleTurret.get(DisplayComponent).view);
 			
 			// start het updaten van het spel
 			stage.addEventListener(Event.ENTER_FRAME, updateEngine);
