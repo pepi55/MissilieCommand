@@ -6,6 +6,7 @@ package art {
 	 */
 	public class GunArt extends Sprite {
 		public function GunArt() {
+			
 		}
 	}
 }

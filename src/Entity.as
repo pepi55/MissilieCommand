@@ -1,12 +1,10 @@
 package {
 	import flash.utils.Dictionary;
 	/**
-	 * @author berendweij
+	 * ...
+	 * @author Ik
 	 */
 	public class Entity {
-		
-		// lijst met alle componenten
-		// dit kan per entity verschillen
 		private var _components :	Dictionary;
 		
 		public function Entity() : void

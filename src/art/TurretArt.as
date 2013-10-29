@@ -39,11 +39,6 @@ package art {
 			
 			turret.graphics.drawCircle(0, 0, 10);
 			
-//			turret.graphics.lineTo(30, 0);
-//			turret.graphics.lineTo(30, 10);
-//			turret.graphics.lineTo(0, 10);
-//			turret.graphics.lineTo(0, 0);
-			
 			turret.graphics.endFill();
 		}
 	}

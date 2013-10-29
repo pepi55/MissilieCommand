@@ -13,14 +13,10 @@ package systems {
 			var position : PositionComponent;
 			var world	: Entity;
 			
-			// in deze update staat de logica om de objecten te checken op collision
 			for each( var target:Entity in targets )
 			{
-				// aangezien we door alle targets heen loopen moeten we ook kijken of deze target wel de components
-				// die wij nodig hebben
 				if (target.get(VelocityComponent) && target.get(PositionComponent))
 				{
-					// voor de leesbaarheid sla ik de positie op in een lokale variabele
 					position = target.get(PositionComponent) as PositionComponent;
 					world = (target.get(CollisionComponent) as CollisionComponent).world;
 					

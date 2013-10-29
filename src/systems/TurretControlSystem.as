@@ -2,9 +2,9 @@ package systems {
 	import components.DisplayComponent;
 	import components.PositionComponent;
 	import components.TurretControlComponent;
-
 	/**
-	 * @author pepi
+	 * ...
+	 * @author Ik
 	 */
 	public class TurretControlSystem extends System {
 		override public function update():void {

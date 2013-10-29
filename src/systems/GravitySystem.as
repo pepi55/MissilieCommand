@@ -3,7 +3,8 @@ package systems {
 	import components.PositionComponent;
 	import components.DisplayComponent;
 	/**
-	 * @author berendweij
+	 * ...
+	 * @author Ik
 	 */
 	public class GravitySystem extends System {
 		
@@ -11,7 +12,6 @@ package systems {
 		
 		override public function update():void
 		{
-			// in deze update staat de logica om de objecten te laten bewegen
 			for each( var target:Entity in targets )
 			{
 				// aangezien we door alle targets heen loopen moeten we ook kijken of deze target wel de components
