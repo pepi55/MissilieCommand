@@ -71,7 +71,7 @@
 			_engine.addEntity(missile);
 		}
 
-		private function updateEngine(e : Event) : void
+		private function updateEngine(e:Event) : void
 		{
 			_engine.update();
 		}

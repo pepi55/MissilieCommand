@@ -24,13 +24,13 @@ package art
 			missile.graphics.lineStyle(1, 0XFFAAAA);
 			missile.graphics.beginFill(0XFF6666);
 			
-			missile.graphics.moveTo(5, 0);
-			missile.graphics.lineTo(-5, 0);
-			missile.graphics.lineTo(0, -20);
-			missile.graphics.lineTo(5, 0);
-			missile.graphics.lineTo(5, 10);
-			missile.graphics.lineTo(-5, 10);
-			missile.graphics.lineTo(-5, 0);
+			missile.graphics.moveTo(2, 0);
+			missile.graphics.lineTo(-2, 0);
+			missile.graphics.lineTo(0, -10);
+			missile.graphics.lineTo(2, 0);
+			missile.graphics.lineTo(2, 5);
+			missile.graphics.lineTo(-2, 5);
+			missile.graphics.lineTo(-2, 0);
 			
 			missile.graphics.endFill();
 		}
